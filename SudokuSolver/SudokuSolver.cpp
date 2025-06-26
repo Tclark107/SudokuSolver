@@ -132,8 +132,19 @@ void solveSudoku(std::vector<std::vector<int>> board, OptionsMap& cellOptions)
 
                 for(int k = 0; k < columns; k++)
                 {
-
+                    if(board[i][k] != 0)
+                    {
+                        auto& options = cellOptions[i][j];
+                        options.erase(std::remove(options.begin(), options.end(), board[i][k]), options.end());
+                    }
                 }
+
+                std::cout << "Options left at (" << i << ", " << j << "): ";
+                for (int val : cellOptions[i][j]) {
+                    std::cout << val << " ";
+                }
+                std::cout << std::endl;
+                
             }
             else
             {
@@ -156,6 +167,8 @@ int main()
     prepareBoard();
     printBoard(board);
     printBoard(answerBoard);
+
+    solveSudoku(board, cellOptions);
 
     return 0;
 }

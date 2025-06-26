@@ -1,0 +1,12 @@
+    The idea is to use backtracking and recursively generate all possible 
+    configurations of numbers from 1 to 9 to fill the empty cells of matrix 
+    mat[][]. To do so, for every unassigned cell, fill the cell with a number 
+    from 1 to 9 one by one. After filling the unassigned cell check if the 
+    matrix is safe or not. If safe, move to the next cell else backtrack for 
+    other cases. 
+
+
+    To check if it is safe to place value num in the cell mat[i][j], 
+    iterate through all the columns of row i, rows of column j and the 3*3 
+    matrix containing cell (i, j) and check if they already has value num, if
+    so return false, else return true.
