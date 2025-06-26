@@ -2,6 +2,7 @@
 #include <vector>
 #include <random>
 #include <unordered_map>
+#include <algorithm>
 
 int rows = 9;
 int columns = 9;
@@ -124,9 +125,14 @@ void solveSudoku(std::vector<std::vector<int>> board, OptionsMap& cellOptions)
                 {
                     if(board[k][j] != 0)
                     {
-                        auto& options cellOptions[i][j];
-                        options.erase(std::remove(options.begin(), options.end(), board[k][j]), options.end()):
+                        auto& options = cellOptions[i][j];
+                        options.erase(std::remove(options.begin(), options.end(), board[k][j]), options.end());
                     }
+                }
+
+                for(int k = 0; k < columns; k++)
+                {
+
                 }
             }
             else
